@@ -27,9 +27,9 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep-history: true
-  # on:
+  on:
   #   branch: master
-  # all_branches: true # solve a permission problem
+    all_branches: true # solve a permission problem
   target_branch: master
   local-dir: public # Directory to push to GitHub Pages, defaults to current directory.
                     # Can be specified as an absolute path or a relative path from the current directory.
