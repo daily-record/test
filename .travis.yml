@@ -1,0 +1,35 @@
+sudo: false
+language: node_js
+node_js:
+  - 12 # use nodejs v10 LTS
+cache:
+  directories:
+    - node_modules
+# assign build branches
+branches:
+  only:
+    - hexo
+
+before_install:
+  - npm install -g hexo-cli # 安装 hexo
+  - npm install -g hexo
+  - npm install hexo-deployer-git --save
+
+install:
+  - npm install 
+
+script:
+  - hexo generate # generate static files
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  keep-history: true
+  on:
+    branch: master
+  # all_branches: true # solve a permission problem
+  target_branch: master
+  local-dir: public # Directory to push to GitHub Pages, defaults to current directory.
+                    # Can be specified as an absolute path or a relative path from the current directory.
+
