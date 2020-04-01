@@ -11,6 +11,7 @@ branches:
     - hexo
 
 before_install:
+  - npm install -g hexo-server
   - npm install -g hexo-cli # 安装 hexo
   - npm install -g hexo
   - npm install hexo-deployer-git --save
@@ -26,8 +27,8 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep-history: true
-  on:
-    branch: master
+  # on:
+  #   branch: master
   # all_branches: true # solve a permission problem
   target_branch: master
   local-dir: public # Directory to push to GitHub Pages, defaults to current directory.
